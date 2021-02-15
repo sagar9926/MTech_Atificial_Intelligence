@@ -11,4 +11,4 @@ https://www.geeksforgeeks.org/search-algorithms-in-ai/
 
 https://www.youtube.com/watch?v=pcKY4hjDrxk
 
-https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+https://www.programiz.com/dsa/graph-bfs
