@@ -12,3 +12,11 @@ https://www.geeksforgeeks.org/search-algorithms-in-ai/
 https://www.youtube.com/watch?v=pcKY4hjDrxk
 
 https://www.programiz.com/dsa/graph-bfs
+
+## Sample Questions : Search Stretegies
+
+UCS A* : https://www.ics.uci.edu/~welling/teaching/271fall09/HW3_sol.pdf
+
+BFS DFS : https://www.ics.uci.edu/~welling/teaching/271fall09/HW2_sol.pdf
+
+RBFS : https://www.eecs.yorku.ca/course_archive/2013-14/F/3401/slides/15b-RBFS.pdf
