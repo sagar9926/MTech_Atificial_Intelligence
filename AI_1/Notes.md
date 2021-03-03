@@ -24,3 +24,5 @@ RBFS : https://www.eecs.yorku.ca/course_archive/2013-14/F/3401/slides/15b-RBFS.p
 https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_4.pdf
 
 http://ai.berkeley.edu/exams/sp12_midterm1_solutions.pdf
+
+http://ai.berkeley.edu/exams/sp11_midterm_solutions.pdf
