@@ -39,3 +39,5 @@ https://www.ics.uci.edu/~rickl/courses/cs-171/0-ihler-2016-fq/Exams/midterm-exam
 https://www.ics.uci.edu/~rickl/courses/cs-171/homework/homework_chap_4_solutions.pdf
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/homework/homework_chap_3_b_solutions.pdf
+
+https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment4.pdf
