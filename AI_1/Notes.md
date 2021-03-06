@@ -41,3 +41,15 @@ https://www.ics.uci.edu/~rickl/courses/cs-171/homework/homework_chap_4_solutions
 https://www.ics.uci.edu/~rickl/courses/cs-171/homework/homework_chap_3_b_solutions.pdf
 
 https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment4.pdf
+
+## NPTEL Questions Practice :
+
+Assignment 1 : https://nptel.ac.in/content/storage2/courses/downloads_new/106106226/noc20_cs81_Assignment_01_Week_01.pdf
+
+Assignment 3 : https://nptel.ac.in/content/storage2/courses/downloads_new/106106226/noc20_cs81_Assignment_01_Week_03.pdf
+
+Assignment 4 : https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment4.pdf
+
+https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment3.pdf
+
+
