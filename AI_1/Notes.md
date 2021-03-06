@@ -28,3 +28,9 @@ http://ai.berkeley.edu/exams/sp12_midterm1_solutions.pdf
 http://ai.berkeley.edu/exams/sp11_midterm_solutions.pdf
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2012-fq-cs171-old-tests/2012-fq-cs-171-quiz-1-key.pdf
+
+## LocaL search Algo :
+
+https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_5.pdf
+
+
