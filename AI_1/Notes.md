@@ -50,4 +50,8 @@ Assignment 4 : https://nptel.ac.in/content/storage2/courses/downloads/106106140/
 
 https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment3.pdf
 
+## CSP :
+
+Notes : https://www.ics.uci.edu/~welling/teaching/271fall09/CSP271fall09.pdf
+
 
