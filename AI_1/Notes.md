@@ -54,4 +54,7 @@ https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assi
 
 Notes : https://www.ics.uci.edu/~welling/teaching/271fall09/CSP271fall09.pdf
 
+https://www.cpp.edu/~ftang/courses/CS420/notes/CSP.pdf
+
+
 
