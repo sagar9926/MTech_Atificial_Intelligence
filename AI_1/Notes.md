@@ -27,6 +27,12 @@ http://ai.berkeley.edu/exams/sp11_midterm_solutions.pdf
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2012-fq-cs171-old-tests/2012-fq-cs-171-quiz-1-key.pdf
 
+https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2016-wq-cs171-old-tests/2016-wq-cs-171-quiz-2-key.pdf
+
+## Master Repo Link : 
+
+https://www.ics.uci.edu/~rickl/courses/cs-171/2016-wq-cs171/CS-171-WQ-2016.htm#_Study_Guides_---
+
 ## LocaL search Algo :
 
 https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_5.pdf
@@ -55,6 +61,11 @@ https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assi
 Notes : https://www.ics.uci.edu/~welling/teaching/271fall09/CSP271fall09.pdf
 
 https://www.cpp.edu/~ftang/courses/CS420/notes/CSP.pdf
+
+Quiz : https://nptel.ac.in/content/storage2/courses/downloads_new/106106158/noc18-cs19_Week_01_Assignment_01.pdf
+
+https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2016-wq-cs171-old-tests/2016-wq-cs-171-quiz-1-key.pdf
+
 
 
 
