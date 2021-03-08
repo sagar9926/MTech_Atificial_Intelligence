@@ -66,6 +66,8 @@ Quiz : https://nptel.ac.in/content/storage2/courses/downloads_new/106106158/noc1
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2016-wq-cs171-old-tests/2016-wq-cs-171-quiz-1-key.pdf
 
+https://files.transtutors.com/cdn/uploadassignments/ed52eff6-1cf7-4cd5-b673-911a6c8176c3_hw3-sol.pdf
+
 
 
 
