@@ -70,6 +70,10 @@ Solutions : https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2016-w
 
 https://files.transtutors.com/cdn/uploadassignments/ed52eff6-1cf7-4cd5-b673-911a6c8176c3_hw3-sol.pdf
 
+https://nptel.ac.in/content/storage2/courses/106106158/NPTEL-CSP-paper1.pdf
+
+https://nptel.ac.in/content/storage2/courses/106106158/NPTEL-CSP-paper2.pdf
+
 
 
 
