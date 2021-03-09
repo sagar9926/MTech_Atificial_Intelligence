@@ -56,6 +56,13 @@ Assignment 4 : https://nptel.ac.in/content/storage2/courses/downloads/106106140/
 
 https://nptel.ac.in/content/storage2/courses/downloads/106106140/noc18_cs51_Assignment3.pdf
 
+### BFS , DFS , UCS , IDFS :
+
+https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_3.pdf
+
+https://nptel.ac.in/content/storage2/courses/downloads_new/106106126/Week_02_Assignment_02.pdf
+
+
 ## CSP :
 
 Notes : https://www.ics.uci.edu/~welling/teaching/271fall09/CSP271fall09.pdf
