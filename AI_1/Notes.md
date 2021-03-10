@@ -37,6 +37,7 @@ https://www.ics.uci.edu/~rickl/courses/cs-171/2016-wq-cs171/CS-171-WQ-2016.htm#_
 
 https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_5.pdf
 
+https://nptel.ac.in/content/storage2/courses/downloads_new/106106126/Week_05_Assignment_05.pdf
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/0-ihler-2016-fq/Exams/midterm-exam-key.pdf
 
