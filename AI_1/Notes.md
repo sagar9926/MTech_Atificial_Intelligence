@@ -33,6 +33,10 @@ https://nptel.ac.in/content/storage2/courses/downloads_new/106106133/Week_9_Solu
 
 https://ucirvine.instructure.com/files/2674747/download?download_frd=1
 
+## A* and IDA*
+
+https://dtai.cs.kuleuven.be/education/fai/ex/session_2/solution.pdf
+
 ## Master Repo Link : 
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/2016-wq-cs171/CS-171-WQ-2016.htm#_Study_Guides_---
