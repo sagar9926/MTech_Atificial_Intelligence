@@ -31,6 +31,8 @@ https://www.ics.uci.edu/~rickl/courses/cs-171/cs171-old-tests/2016-wq-cs171-old-
 
 https://nptel.ac.in/content/storage2/courses/downloads_new/106106133/Week_9_Solution.pdf
 
+https://ucirvine.instructure.com/files/2674747/download?download_frd=1
+
 ## Master Repo Link : 
 
 https://www.ics.uci.edu/~rickl/courses/cs-171/2016-wq-cs171/CS-171-WQ-2016.htm#_Study_Guides_---
