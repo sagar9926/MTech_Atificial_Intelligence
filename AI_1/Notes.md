@@ -33,6 +33,10 @@ https://nptel.ac.in/content/storage2/courses/downloads_new/106106133/Week_9_Solu
 
 https://ucirvine.instructure.com/files/2674747/download?download_frd=1
 
+## Back Tracking
+
+https://www.ics.uci.edu/~dechter/books/chapter06.pdf
+
 ## A* and IDA*
 
 https://dtai.cs.kuleuven.be/education/fai/ex/session_2/solution.pdf
