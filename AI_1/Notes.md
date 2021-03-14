@@ -90,6 +90,7 @@ https://nptel.ac.in/content/storage2/courses/106106158/NPTEL-CSP-paper1.pdf
 
 https://nptel.ac.in/content/storage2/courses/106106158/NPTEL-CSP-paper2.pdf
 
+https://nptel.ac.in/content/storage2/courses/downloads_new/106102220/noc20_cs42_assigment_7.pdf
 
 
 
