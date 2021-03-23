@@ -1,0 +1,430 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "AI_Assignment_WIP.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyMf9aDkzQTvGO55VCpQV4qs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sagar9926/MTech_Atificial_Intelligence/blob/main/AI_1/Assignment_1/AI_Assignment_1ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "85rQSnkgd4x3"
+      },
+      "source": [
+        "from random import randint\n",
+        "import sys\n",
+        "import time\n",
+        "import math\n",
+        "import itertools\n",
+        "import copy \n",
+        "import numpy as np\n",
+        "import random\n",
+        "np.random.seed(42)\n",
+        "\n",
+        "input_file = 'input.txt'\n",
+        "f = open(input_file)\n"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "aG4xbkcNhPDq"
+      },
+      "source": [
+        "# each session has k papers\n",
+        "k=int(f.readline()) \n",
+        "\n",
+        "# schedule have p parallel sessions\n",
+        "p=int(f.readline()) \n",
+        "\n",
+        "# total of t timeslots\n",
+        "t=int(f.readline())\n",
+        "\n",
+        "c=int(f.readline())\n",
+        "\n",
+        "# total number of paper\n",
+        "tnp=p*k*t \n",
+        "\n",
+        "dim=k*p*t\n",
+        "dis=[]  #Distance array\n",
+        "\n",
+        "sim=[]  #Similarity array\n",
+        "\n",
+        "\n",
+        "schedule = [[[None for _ in range(k)] for _ in range(p)] for _ in range(t)] #This denotes the state of my search problem "
+      ],
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bAEBu57nhK9B"
+      },
+      "source": [
+        "for i in range(dim):\n",
+        "  m=[]\n",
+        "  l=f.readline().strip().split(' ')\n",
+        "  for i in range(len(l)):\n",
+        "    l[i]=float(l[i])\n",
+        "    m+=[round(1.0-float(l[i]),2)]\n",
+        "  dis+=[l]\n",
+        "  sim+=[m]"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5mGEN9QII535",
+        "outputId": "247acaa6-71b4-4f07-e038-c896e1d553a4"
+      },
+      "source": [
+        "dis"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J7tOLbyqI7j-",
+        "outputId": "a2b59736-25ce-4b35-b5a5-e75f830774fc"
+      },
+      "source": [
+        "sim"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0],\n",
+              " [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0]]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zYYYpLNwmwjb"
+      },
+      "source": [
+        "def goodness_function(schedule,dis,sim):\n",
+        "  goodness = {}\n",
+        "\n",
+        "  for time_slot_index in range(len(schedule)):\n",
+        "    goodness[time_slot_index] = 0 \n",
+        "\n",
+        "    # fetch the schedule for one time slot\n",
+        "    single_time_slot_sessions = schedule[time_slot_index]\n",
+        "\n",
+        "    # Calculate similarity score and update goodness\n",
+        "    for index in range(len(single_time_slot_sessions)):\n",
+        "      session = single_time_slot_sessions[index]\n",
+        "      for session_i in session:\n",
+        "        for session_j in session:\n",
+        "          if(session_i != session_j):\n",
+        "            goodness[time_slot_index] += sim[session_i][session_j] / 2\n",
+        "\n",
+        "    # Calculate dissimilarity score and update goodness\n",
+        "    for session_a in single_time_slot_sessions:\n",
+        "      for session_b in single_time_slot_sessions:\n",
+        "        if session_a != session_b:\n",
+        "          for session_i in session_a:\n",
+        "            for session_j in session_b:\n",
+        "              goodness[time_slot_index] += dis[session_i][session_j] / 2\n",
+        "\n",
+        "  return goodness"
+      ],
+      "execution_count": 6,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MahHcM3YQ0kI"
+      },
+      "source": [
+        "def generate_neighbour (current_schedule_state):\n",
+        "  papers = sum(list(itertools.chain(*current_schedule_state)),[])\n",
+        "  global t\n",
+        "  global p\n",
+        "  global k\n",
+        "  next_schedule_state = [[[None for _ in range(k)] for _ in range(p)] for _ in range(t)]\n",
+        "\n",
+        "  for slot in range(t):\n",
+        "    for session in range(p):\n",
+        "      for paper in range(k):\n",
+        "        temp = random.sample(papers,k = 1)[0]\n",
+        "        next_schedule_state[slot][session][paper] = temp\n",
+        "        papers.remove(temp)\n",
+        "  return next_schedule_state"
+      ],
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rPyzXbKXorwr",
+        "outputId": "ce08d378-e33f-4ab3-9688-863e3052f5ce"
+      },
+      "source": [
+        "np.random.randint(k),np.random.randint(p),np.random.randint(t)"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(3, 0, 0)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "aiKO33LeoUl_"
+      },
+      "source": [
+        "def generate_neighbour2 (current_schedule_state):\n",
+        "  papers = sum(list(itertools.chain(*current_schedule_state)),[])\n",
+        "  global t\n",
+        "  global p\n",
+        "  global k\n",
+        "  next_schedule_state = copy.deepcopy(current_schedule_state)\n",
+        "  slot1,session1,paper1  = np.random.randint(t),np.random.randint(p),np.random.randint(k)\n",
+        "  slot2,session2,paper2  = np.random.randint(t),np.random.randint(p),np.random.randint(k)\n",
+        "\n",
+        "  temp = next_schedule_state[slot2][session2][paper2]\n",
+        "  next_schedule_state[slot2][session2][paper2] = next_schedule_state[slot1][session1][paper1]\n",
+        "  next_schedule_state[slot1][session1][paper1] = temp\n",
+        "  \n",
+        "  return next_schedule_state"
+      ],
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "u2KMuxSmhavR"
+      },
+      "source": [
+        "def simulated_annealing(initial_schedule_state):\n",
+        "    \"\"\"Peforms simulated annealing to find a solution\"\"\"\n",
+        "\n",
+        "    # Exploration to find best initial state\n",
+        "    exploration = 100\n",
+        "    update_exploration = 0.001\n",
+        "\n",
+        "    while exploration > 0.1:\n",
+        "      exploration = exploration - update_exploration\n",
+        "      neighbor = generate_neighbour(initial_schedule_state)\n",
+        "\n",
+        "        # Check if neighbor is best so far\n",
+        "      cost_diff_1 = sum([next_cost - current_cost for current_cost , next_cost  in  zip(goodness_function(initial_schedule_state,dis,sim).values() , goodness_function(neighbor,dis,sim).values())])\n",
+        "\n",
+        "        # if the new solution is better, accept it\n",
+        "      if cost_diff_1 > 0:\n",
+        "        best_initial_state = neighbor\n",
+        "        initial_schedule_state = neighbor\n",
+        "\n",
+        "    print('best_initial_state',best_initial_state,\"and it's cost is\",goodness_function(best_initial_state,dis,sim))\n",
+        "    # Exploration + Exploitation\n",
+        "    initial_temp = 180\n",
+        "    final_temp = .1\n",
+        "    alpha = 0.001\n",
+        "    \n",
+        "    current_temp = initial_temp\n",
+        "\n",
+        "    # Start by initializing the current state with the initial state\n",
+        "    current_schedule_state = best_initial_state\n",
+        "    solution = best_initial_state\n",
+        "\n",
+        "    while current_temp > final_temp:\n",
+        "        neighbor = generate_neighbour2(current_schedule_state)\n",
+        "\n",
+        "        # Check if neighbor is best so far\n",
+        "        cost_diff = sum([next_cost - current_cost for current_cost , next_cost  in  zip(goodness_function(current_schedule_state,dis,sim).values() , goodness_function(neighbor,dis,sim).values())])\n",
+        "        # if the new solution is better, accept it\n",
+        "        if cost_diff > 0:\n",
+        "            solution = neighbor\n",
+        "            current_schedule_state = neighbor\n",
+        "            last_best_state = neighbor\n",
+        "        # if the new solution is not better, accept it with a probability of e^(-cost/temp)\n",
+        "        else:\n",
+        "            if random.uniform(0, 1) < math.exp(cost_diff / current_temp):\n",
+        "                solution = neighbor\n",
+        "                current_schedule_state = neighbor\n",
+        "        # decrement the temperature\n",
+        "        current_temp -= alpha\n",
+        "\n",
+        "    return last_best_state , solution\n"
+      ],
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VKqWmTCfzJR7",
+        "outputId": "f7e8b145-ad8a-496e-e9ac-50802e2ea9fa"
+      },
+      "source": [
+        "schedule"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[[None, None, None, None, None],\n",
+              "  [None, None, None, None, None],\n",
+              "  [None, None, None, None, None]]]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MohcBSxGi0wV",
+        "outputId": "9673cebd-2fb6-4162-f5ca-b3026d6f6d57"
+      },
+      "source": [
+        "initial_state = [[[0, 1, 2, 3, 4], [5, 6, 7, 8, 9],[10, 11, 12, 13, 14]]]\n",
+        "initial_state = generate_neighbour(initial_state)\n",
+        "print(\"Initial state :\",initial_state )\n",
+        "last_best_state,result  = simulated_annealing(initial_state)\n",
+        "print(\"Cost of Result : \",result,\" is \",goodness_function(result,dis,sim))"
+      ],
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Initial state : [[[3, 9, 14, 6, 12], [1, 10, 7, 5, 4], [2, 0, 8, 13, 11]]]\n",
+            "best_initial_state [[[9, 5, 7, 6, 8], [0, 13, 2, 4, 3], [14, 12, 11, 10, 1]]] and it's cost is {0: 89.0}\n",
+            "Cost of Result :  [[[1, 3, 2, 4, 0], [10, 14, 13, 11, 12], [9, 7, 5, 6, 8]]]  is  {0: 105.0}\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uIitq4qO4IvQ"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
