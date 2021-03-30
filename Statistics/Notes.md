@@ -23,9 +23,11 @@ http://courses.washington.edu/inde411/MarkovChains(part3).pdf
 https://nanopdf.com/download/practice-questions-2nd-half-ieor-165-spring-2016_pdf
 
 
-## FRACYTL 2 :
+## FRACATL 2 :
 
 #### How to find line parallel to direction vector and passing through a specific point?
 
 
 https://math.stackexchange.com/questions/976812/how-to-find-line-parallel-to-direction-vector-and-passing-through-a-specific-poi
+
+https://math.stackexchange.com/questions/2397808/parametric-equations-for-the-plane-through-origin-parallel-to-two-vectors
