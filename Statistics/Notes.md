@@ -33,3 +33,5 @@ https://math.stackexchange.com/questions/976812/how-to-find-line-parallel-to-dir
 https://math.stackexchange.com/questions/2397808/parametric-equations-for-the-plane-through-origin-parallel-to-two-vectors
 
 https://yutsumura.com/diagonalize-a-2-by-2-matrix-a-and-calculate-the-power-a100/
+
+Book : https://math.berkeley.edu/~yonah/files/Linear%20Algebra.pdf
