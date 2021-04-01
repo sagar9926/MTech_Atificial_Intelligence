@@ -35,3 +35,6 @@ https://math.stackexchange.com/questions/2397808/parametric-equations-for-the-pl
 https://yutsumura.com/diagonalize-a-2-by-2-matrix-a-and-calculate-the-power-a100/
 
 Book : https://math.berkeley.edu/~yonah/files/Linear%20Algebra.pdf
+
+EigenValue Vector : https://www.emathhelp.net/calculators/linear-algebra/eigenvalue-and-eigenvector-calculator/?i=%5B%5B3%2C-1%2C-2%5D%2C%5B2%2C0%2C-2%5D%2C%5B2%2C-1%2C-1%5D%5D
+
