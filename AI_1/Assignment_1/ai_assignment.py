@@ -10,6 +10,17 @@ import time
 
 
 def goodness_function(schedule,dis,sim):
+   """
+    Returns the goodness of the schedule
+
+    Parameters:
+        schedule : Nested list of size t (time slot)x p (prallel session)x k (papers).
+        dis :  Matrix containing the dissimilarity scores for all papers
+        sim : dis :  Matrix containing the similarity scores for all papers
+
+    Returns:
+        goodness : Numerical Goodness value corresponding to a particular schedule.
+    """
   goodness = {}
   
   global c
@@ -38,6 +49,23 @@ def goodness_function(schedule,dis,sim):
   return goodness
 
 def generate_neighbour (current_schedule_state):
+  
+     """
+    Returns a randomly generated next state. This function helps algorithm to traverse the entire seach space randomly. 
+    The next state generated is completely random when compared to the current state. This function can be interpreted
+    as "Random Jumping Mechanism" which helps us to explore the search space by randomly jumping from one state to another
+    
+    Parameters:
+        current_schedule_state : This is the current state of our search problem.
+      
+    Returns:
+        Returns a randomly generated next state. This function takes into consideration all the papers and generates 
+        neighbouring state by randomly rearranging all papers among parallel sessions across all time slots
+
+        
+    """
+
+  
   papers = sum(list(itertools.chain(*current_schedule_state)),[])
   global t
   global p
