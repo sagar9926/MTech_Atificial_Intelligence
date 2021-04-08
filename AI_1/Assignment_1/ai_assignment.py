@@ -111,6 +111,22 @@ def generate_neighbour2 (current_schedule_state):
   return next_schedule_state
 
 def exploration(initial_schedule_state):
+  """
+     This function uses the "generate_neighbour()" function to perform exploration, which is a "Random Jumping Mechanism" i.e we can jump from one 
+     state to some enitrely different state. Exploration allows a search algorithm to come close to the global minimum or good local minimum also
+     the exploration ensures the algorithm to reach different promising regions of the search space. This functions Scans the search space by randomly
+     jumping from one state to another and for every state it compares the goodness value of it's current state with new state and store the best state
+     visited (i.e. with highest goodness score). Every time it checks if neighbor is best so far and  if the new solution is better, accept it and continue exploration.
+    
+    Parameters:
+        initial_schedule_state : This is the Initial state of our search problem.
+      
+    Returns:
+         best_initial_state :  The state visited with highest goodness value in exploration process .
+
+        
+    """
+
     # Exploration to find best initial state
     print("Exploration Start")
     exploration = 100
