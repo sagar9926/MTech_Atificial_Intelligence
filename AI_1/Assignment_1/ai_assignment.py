@@ -59,7 +59,7 @@ def generate_neighbour (current_schedule_state):
         current_schedule_state : This is the current state of our search problem.
       
     Returns:
-        Returns a randomly generated next state. This function takes into consideration all the papers and generates 
+        next_schedule_state : A randomly generated next state. The function takes into consideration all the papers and generates 
         neighbouring state by randomly rearranging all papers among parallel sessions across all time slots
 
         
@@ -82,6 +82,21 @@ def generate_neighbour (current_schedule_state):
 
 
 def generate_neighbour2 (current_schedule_state):
+  """
+    Returns next state. The next state is obtained by randomly swapping any two papers (irrespective of their session or time slot)
+    This function can be interpreted as baby steps taken to move towards the goal state. In this current and the next state are
+    very much similar and just differ for any two random paper locations
+    
+    Parameters:
+        current_schedule_state : This is the current state of our search problem.
+      
+    Returns:
+         next_schedule_state :  A randomly generated next state. The function takes into consideration all the papers and generates 
+        neighbouring state by randomly swapping any two papers.
+
+        
+    """
+
   global t
   global p
   global k
