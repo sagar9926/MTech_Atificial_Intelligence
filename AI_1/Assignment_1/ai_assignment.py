@@ -208,16 +208,17 @@ def simulated_annealing(initial_schedule_state):
 if __name__ == '__main__' :
 
     _,input_file , output_file = argv
-    print(input_file)
+    
+    # Reading the input file
     f = open(input_file)
 
-    # each session has k papers
+    # Each session has k papers
     k=int(f.readline()) 
     
-    # schedule have p parallel sessions
+    # Schedule have p parallel sessions
     p=int(f.readline()) 
     
-    # total of t timeslots
+    # Total of t timeslots
     t=int(f.readline())
     
     # tradeoff parameter
@@ -231,6 +232,8 @@ if __name__ == '__main__' :
     
     sim=[]  #Similarity array
     
+    
+    ## The following loop computes the similarity and disimmilarity matrices
     for i in range(dim):
       m=[]
       l=f.readline().strip().split(' ')
@@ -241,7 +244,6 @@ if __name__ == '__main__' :
       sim+=[m]
     
     ## Randomly finding the initial state
-    
     # create a one dimensional list of all papers
     papers_1d = list(np.arange(dim))
     
@@ -249,6 +251,7 @@ if __name__ == '__main__' :
     random.shuffle(papers_1d)
     
     start = time.time()
+    
     # Let's initialise the initial state of my search problem
     initial_state = [[[papers_1d.pop() for _ in range(k)] for _ in range(p)] for _ in range(t)] 
     last_best_state,result  = simulated_annealing(initial_state)
