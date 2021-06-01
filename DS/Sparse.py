@@ -10,7 +10,7 @@ class Sparse:
       # First row in triplet denotes the size of Sparse matrix and number of non zero elements
 #      self.triplet_representation[0][0]  = sparse_row_size    
 #      self.triplet_representation[0][1]  = sparse_col_size    
-      self.triplet_representation[0][2]  = len(rows) #Number of non zero elements   
+#      self.triplet_representation[0][2]  = len(rows) #Number of non zero elements   
 
       for i , (row , col) in enumerate(zip(rows,columns)):
         self.triplet_representation[i][0] = row
