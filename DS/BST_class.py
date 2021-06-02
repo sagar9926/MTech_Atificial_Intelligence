@@ -100,12 +100,12 @@ class BSTOperations :
       # Deleting node with only one or No Child 
       if root_node.left_child is None:
         temp = root_node.right_child
-        root_node.left_child = None
+        root_node = None
         return temp
 
       elif root_node.right_child is None:
         temp = root_node.left_child
-        root_node.right_child = None
+        root_node = None
         return temp
 
       # Nodes with two children: 
@@ -166,14 +166,15 @@ class BSTOperations :
     all_nodes = []
     # First Check if the value is present in BST
     if self.BST_search(root_node,value) is None:
-      print("Element not found : -1 ")
+      print("Element not found : Level = -1 , Position = -1 ")
+      return
     
     #If the element if found , lets find the depth of element from root node
     depth = self.Node_depth(root_node,value)
 
     # Now let us find all nodes at that depth
     self.BST_Nodes_at_level(root_node,depth,all_nodes)
-
+    print("#########################")
     print(f"Element {value} is found at Level = {depth - 1} , Position = {all_nodes.index(value) + 1}")
 
 
