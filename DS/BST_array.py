@@ -131,7 +131,7 @@ if __name__ == "__main__":
     bst_tree = [None] * N
     
     while (flag):
-        
+        print()
         print("Enter one of the following options :")
         print()
         print("Press 1 to Insert an element to BST ")
