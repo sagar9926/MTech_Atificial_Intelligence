@@ -4,22 +4,18 @@ class Sparse:
   # Initialisation
   def __init__(self,rows,columns):
 
-
       self.triplet_representation= [[None for _ in range(3)] for _ in range(len(rows))]
-
-      # First row in triplet denotes the size of Sparse matrix and number of non zero elements
-#      self.triplet_representation[0][0]  = sparse_row_size    
-#      self.triplet_representation[0][1]  = sparse_col_size    
-#      self.triplet_representation[0][2]  = len(rows) #Number of non zero elements   
 
       for i , (row , col) in enumerate(zip(rows,columns)):
         self.triplet_representation[i][0] = row
         self.triplet_representation[i][1] = col
         if i == 0:
+            # At index 0 of value column , we store the number of non zero elements in sparse matrix
             self.triplet_representation[i][2] = len(rows) - 1
         else :
             self.triplet_representation[i][2] = random.randint(1, 100)
-            
+      
+      self.triplet_representation = [self.triplet_representation[0],] + sorted(self.triplet_representation[1:], key = lambda x: (x[0],x[1]))
       print("The Triplet representation :")
       print(self.triplet_representation)
       print()
@@ -33,7 +29,7 @@ class Sparse:
     col_size = self.triplet_representation[0][1]
     
     # Sort the Triplet representation by row column
-    data = sorted(self.triplet_representation[1:], key = lambda x: x[0])
+    data = sorted(self.triplet_representation[1:], key = lambda x: (x[0],x[1]))
     
     row, col , val = data.pop(0)
     for i in range(row_size):
@@ -57,17 +53,29 @@ class Sparse:
       else:
         index += 1
     
-    print("Matrix before deletion : ")
+    print("Sparse matrix before deletion : ")
+    print()
     self.print_sparse()
 
-
+    length_before_deletion = len(self.triplet_representation)
     self.triplet_representation = self.triplet_representation[:index ] +self.triplet_representation[index + 1:]
+    
 
-    print("Matrix after deletion : ")
+    print("Sparse matrix after deletion : ")
+    print()
+    length_after_deletion = len(self.triplet_representation)
+    
+    if length_before_deletion > length_after_deletion:
+        #If an element is deleted , then update the count of non zero elements in triplet representation
+        # Decreasing the count of non zero values in sparse matrix
+        self.triplet_representation[0][2] -= 1
+
+        #print(self.triplet_representation)
     self.print_sparse()
 
   def insert(self,row_ins,col_ins,value):
-    print("Sparse matrix before insertion : ")
+    # Now here we are dynamically handling the size of sparse matrix
+    # whenever an new element inserted is out of the bound of sparse matrix we incerement the size of spaerse matrix
     if row_ins  >= self.triplet_representation[0][0] - 1:
       self.triplet_representation[0][0] = row_ins + 1
     if col_ins >= self.triplet_representation[0][1] - 1:
@@ -77,6 +85,9 @@ class Sparse:
     self.print_sparse()
 
     self.triplet_representation.append([row_ins,col_ins,value])
+    
+    # Increasing the count of non zero values in sparse matrix when an element is inserted
+    #self.triplet_representation[0][2] += 1
 
     print("Sparse matrix after insertion : ")
     self.print_sparse()
@@ -105,11 +116,16 @@ if __name__ == "__main__":
         choice = int(input())
         
         if choice == 1:
-            print("Enter row elements seperated by spaces (first element corresponds to row size): ")
+            print("Enter row index elements seperated by spaces (first element corresponds to row size of sparse matrix): ")
             rows =list(map(int,input().strip().split()))
+            
+            if rows[0] < max(rows[1:]):
+                raise Exception ("Invalid Index value , the index value must be lesser than row size of sparse matrix(first element of input list)")
         
-            print("Enter column elements seperated by spaces (first element corresponds to column size): ")
+            print("Enter columns index elements seperated by spaces (first element corresponds to column size of sparse matrix): ")
             cols =list(map(int,input().strip().split()))
+            if cols[0] < max(cols[1:]):
+                raise Exception ("Invalid Index value , the index value must be lesser than column size of sparse matrix (first element of input list)")
             
             #Initialisation
             sparse_obj = Sparse(rows,cols)
