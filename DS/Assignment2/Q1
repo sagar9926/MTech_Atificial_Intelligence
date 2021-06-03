@@ -1,0 +1,28 @@
+create_set = set()
+list_a =[]
+list_b = []
+def BloodDonation(input):
+    for i in input:
+        if i in create_set:
+            if len(list_a):
+                list_a.remove(i)
+        else:
+            list_a.append(i)
+            create_set.add(i)
+        if len(list_a):
+            list_b.append(list_a[0])
+        else:
+            list_b.append(0)
+    return list_b
+
+# Main function
+if __name__ == '__main__':
+  print("Input")
+  s=int(input("Enter the number of students : "))  #number of students
+  m = int(input("Enter the size of list A : ")) #size of list Input
+  print("Enter Roll Number of students :")
+  A =list(map(int,input().strip().split()))[:m] #integers which are the roll number of students.
+  #Test Case -1
+  print(''.join(str(A).split(',')))
+  print("Output")
+  print(BloodDonation(A))
